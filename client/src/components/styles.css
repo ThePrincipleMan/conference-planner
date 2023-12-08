@@ -1,0 +1,38 @@
+nav{
+    background-color: yellow;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.8rem;
+    padding: 1rem;
+}
+
+.styleremover{
+    text-decoration: none;
+    color: black;
+}
+
+.homebody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8rem 2rem;
+    min-height: 50vh;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10vh;
+}
+
+footer > *{
+    margin: 1rem;
+}
+
+.plannerbody{
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
