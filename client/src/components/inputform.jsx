@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './styles.css'
 
 export const InputForm = () => {
     const [inputs, setInputs] = useState([{name: "", city: "", nationality: ""}]);
@@ -22,7 +23,14 @@ export const InputForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(inputs);
+        console.log(JSON.stringify(inputs));
+        fetch('http://localhost:8000/planner', {
+            method: 'POST',
+            body: JSON.stringify(inputs),
+            headers: {
+                'content-type' : 'application/json'
+            },
+        })
         setInputs([]);
     }
 
