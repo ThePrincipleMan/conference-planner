@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const data = require('./data');
-const plan = require('./planning');
+const plan = require('./planning'); 
 
 const app = express();
 
@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.get('/message', (req, res) => {
     res.json({message : "Hello fron server!"});
-});
+}); 
 
 app.post('/planner', (req,res) => {
     var people = req.body

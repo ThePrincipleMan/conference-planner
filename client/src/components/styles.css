@@ -1,9 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --navcolor: ;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+}
+
 nav{
     background-color: yellow;
     display: flex;
     justify-content: space-between;
-    font-size: 1.8rem;
-    padding: 1rem;
+    font-size: 1.5rem;
+    padding: .5rem;
 }
 
 .styleremover{
@@ -15,8 +27,16 @@ nav{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 8rem 2rem;
-    min-height: 50vh;
+    flex-direction: column;
+    padding: 4rem 3rem;
+    min-height: 10vh;
+    margin-bottom: 2rem;
+}
+
+.intro{
+    padding: 4rem;
+    font-size: 1.4rem;
+    text-align: center;
 }
 
 footer{
@@ -31,8 +51,49 @@ footer > *{
 }
 
 .plannerbody{
-    min-height: 60vh;
+    min-height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+    width: 8rem;
+    height: 2rem;
+    padding: 0.6rem;
+    border-radius: .3rem;
+}
+
+.buttons:hover{
+    cursor: pointer;
+    display: flex;
+    background-color: rgb(67, 67, 67);
+    color: white;
+}
+
+.form{
+    padding: .4rem;
+    display: flex;
+}
+
+.participants{
+    min-width: 60vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.participants > * {
+    /* margin-right: 2rem; */
+    margin-bottom: 2rem;
+}
+
+.end-buttons{
+    min-width: 50vh;
+    display: flex;
+    justify-content: space-evenly;
 }
