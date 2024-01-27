@@ -1,18 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root{
-    --navcolor: ;
+    --beige: #DDD0C8;
+    --darkgrey: #323232;
 }
 
 body{
     font-family: 'Raleway', sans-serif;
     font-style: normal;
     font-weight: 500;
+    background-color: var(--beige);
+    color: var(--darkgrey);
 }
 
 nav{
-    background-color: yellow;
-    display: flex;
+    display: flex;  
     justify-content: space-between;
     font-size: 1.5rem;
     padding: .5rem;
@@ -20,7 +22,7 @@ nav{
 
 .styleremover{
     text-decoration: none;
-    color: black;
+    color: var(--darkgrey);
 }
 
 .homebody{
@@ -47,7 +49,7 @@ footer{
 }
 
 footer > *{
-    margin: 1rem;
+    margin: 0rem 2.6rem;
 }
 
 .plannerbody{
@@ -58,11 +60,55 @@ footer > *{
     flex-direction: column;
 }
 
+
+#inputwindow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#resultwindow{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#countrieslist{
+    display: flex;
+    flex-direction: row;
+}
+
+#countrieslist > *{
+    padding: 1.2rem;
+}
+
+#visafree{
+    display: flex;
+    flex-direction: column;
+}
+
+#eligible{
+    display: flex;
+    flex-direction: column;
+}
+
+#buttons-case{
+    display: flex;
+    flex-direction: row;
+}
+
+#buttons-case > *{
+    margin: .4rem;
+}
+
 .buttons{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: gray;
+    background-color: var(--darkgrey);
+    color: whitesmoke;
     width: 8rem;
     height: 2rem;
     padding: 0.6rem;
@@ -73,7 +119,12 @@ footer > *{
     cursor: pointer;
     display: flex;
     background-color: rgb(67, 67, 67);
-    color: white;
+    color: var(--darkgrey);
+    background-color: whitesmoke;
+}
+
+.fontbig{
+    font-size: 1.5rem;
 }
 
 .form{

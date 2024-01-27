@@ -37,7 +37,7 @@ function planning(people){
         const entryeligIter = entryEligibleCountries.values()
         for(let target of visafreeIter){
             const val = data.visa[data.countrycode[baseCountry][3][0]][data.countrycode[target][3][1]]
-            if( val == 1 || val > 2){
+            if( val == 1 || val > 2 || val == 0){ // also the case person resides in that country
                 // do nothing
             }
             else{
@@ -46,7 +46,7 @@ function planning(people){
         }
         for(let target of entryeligIter){
             const val = data.visa[data.countrycode[baseCountry][3][0]][data.countrycode[target][3][1]]
-            if( val == 2 ){
+            if(val > 0){ // as here visafree access is also allowed and should be considered, not strictly visa issued one
                 // do nothing
             }
             else{
@@ -75,13 +75,13 @@ function planning(people){
     entryEligibleCountries = new Set()
     
     let i = 0
-    while(i < visaFree.length && i < 45){
+    while(i < visaFree.length /*&& i < 45*/){
         visaFreeCountries.add(visaFree[i][1])
         i += 1
     }
 
     let j = 0
-    while(j < eligible.length && j < 45){
+    while(j < eligible.length /*&& j < 45*/){
         entryEligibleCountries.add(eligible[j][1])
         j += 1
     }
@@ -149,7 +149,7 @@ function planning(people){
         result["visafree_countries"] = []
         result["eligible_countries"] = []
         let i = 0
-        while(i<10 && i<eligible.length){
+        while(i<15 && i<eligible.length){
             result["eligible_countries"].push(data.countrycode[eligible[i][1]][0])
             i+=1
         }
