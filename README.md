@@ -9,13 +9,13 @@ The aim of this project is to relieve this burden from the organizers and to rec
 
 ## Website
 
-[Hosted Website](https://conferenceplanner-theprincipleman.netlify.app/planner)
+[Hosted Website](https://conferenceplanner-theprincipleman.netlify.app)
 
 *It may take a few moments for the backend to activate and respond to your request once you press the submit button*
 
 The website is hosted in 2 parts, with its backend(api) hosted on render.com and frontend(client) on vercel.com
 
-## Overview
+## Overview and Working
 The application is divided into two parts, namely *client* and *api*. A api request is made from the client with data to the backend, and the response is displayed to the user.
 
 The application prompts the user to input participant details. The details requested are Name, Nationality and Current Country of Residence.
@@ -23,24 +23,28 @@ Each piece of information is used to generate the optimal output to users reques
 
 Once the necessary data is collected and a call is made to the backend, the backend receives this data and starts processing it.
 
-Step 1 - 
+![input screen](https://github.com/ThePrincipleMan/conference-planner/blob/main/inputscreen.png)
+
+### Step 1 - 
 Participants are sorted based on the *rank* of their passport in ascending order. This rank is directly proportional to strength of the passport (i.e. rank of afghanistan < rank of USA). Thus we start processing from the participant who has the weakest passport. This helps in eliminating various countries early on from consideration and saves processing power.
 
-Step 2 - 
+### Step 2 - 
 Participants are iterated over one by one and two sets of strings are maintained which are *visafree access* and *with visa access*.
 At participant[i], *visafree access* countries are the set of all countries that allow visa free travel to citizens of countries to whome participant[0], participant[1], ..., participant[i] belong to. These sets are updated at each iteration.
 
-Step 3 - 
+### Step 3 - 
 Once we iterate over all participants we get two sets of countries which are possible hosting destinations for us. These countries will allow access to our participants (either visa free of with visa, depending on the set). Now we sort countries based on their cumulative distance from participants in ascending order. The lower the cumulative distance, the lower more central will the location be.
 
-Step 4 - 
+### Step 4 - 
 The response is generated in this step based on the countries we shortlist. This response, once prepared is sent to the frontend to be displayed to the user.
+
+![output screen](https://github.com/ThePrincipleMan/conference-planner/blob/main/outputscreen.png)
 
 With this, we shortlist the countries based on visa requirements (ensuring ease), centrality (distance to all participants) and cost.
 Distance is also used as a proxy for cost as is explained in *future scope*
 
 ## Future Scope
-The application can be further augmented by implementing a minimum cumulative cost(ticket price) filter to the existing process. At this point in time, SkyScanner API is the only viable api which could be found for the purpose. But this api was difficult to use along with having a cap of 100 requests per minute, thus becoming a potential bottleneck in the future. If and when a dataset of ticket prices between major destinations become available, distance can serve as a good proxy.
+The application can be further augmented by implementing a minimum cumulative cost(ticket price) filter to the existing process. At this point in time, SkyScanner API is the only viable api which could be found for the purpose. But this api was difficult to use along with having a cap of 100 requests per minute, thus becoming a potential bottleneck in the future. Till the time a dataset of ticket prices between major destinations become available, distance can serve as a good proxy.
 
 Furthermore an additional filter for *infrastructure* can also be added before returning response keeping in mind the capacity of the host nation to accomodate the participants for the conference. For e.g. St. Vincent and the Grenadines may have lax visa norms but they may not have the capacity to cater to potentially 100s or even 1000s of guests, for which more infrastructurally developed nations should be preferred.
 
@@ -49,23 +53,27 @@ A country specific primer and trivia section can go a long way in helping a user
 ## Tech Stack 
 
 **Frontend**
-*ReactJS
-*JavaScript
-*React libraries (React-Router-Dom and more)
-*HTML+CSS
+* ReactJS
+* JavaScript
+* React libraries (React-Router-Dom and more)
+* HTML+CSS
 
 **Backend**
-*NodeJS
-*Nodemon
+* NodeJS
+* Nodemon
 
 **Data Preprocessing**
-*Python
-*Numpy
-*Pandas
+* Python
+* Numpy
+* Pandas
+
 Used above to preprocess the data into usable form for passport eligiblity and distances datasets.
 
 ## Links
 [Passport data](https://github.com/ilyankou/passport-index-dataset) (visa eligiblity dataset)
+*Note - E-Visa and Visa on Arrival are considered cases of visa free access due to the ease in obtaining these*
 
 [Distances](https://github.com/rahulbot/distances-between-countries) (Between most populus cities of countries)
+
+[Data Preprocessing](https://colab.research.google.com/drive/1lcBgW47d1GUQwURsMzv5iNkjFCxrwKrd?usp=sharing)
 
