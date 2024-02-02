@@ -71,6 +71,7 @@ Used above to preprocess the data into usable form for passport eligiblity and d
 
 ## Links
 [Passport data](https://github.com/ilyankou/passport-index-dataset) (visa eligiblity dataset)
+
 *Note - E-Visa and Visa on Arrival are considered cases of visa free access due to the ease in obtaining these*
 
 [Distances](https://github.com/rahulbot/distances-between-countries) (Between most populus cities of countries)
